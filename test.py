@@ -315,6 +315,9 @@ if __name__ == '__main__':
     opt.data = check_file(opt.data)  # check file
     print(opt)
 
+    # init wandb
+    wandb.init(config=opt, resume="allow", project="YOLOR")
+
     if opt.task in ['val', 'test']:  # run normally
         test(opt.data,
              opt.weights,
